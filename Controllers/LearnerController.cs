@@ -146,5 +146,13 @@ namespace TH_04Oct.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult LearnerByMajorID(int mid)
+        {
+            var learners = db.Learners
+                .Where(l => l.MajorID == mid)
+                .Include(m => m.Major).ToList();
+            return PartialView("LearnerTable", learners);
+        }
     }
 }
