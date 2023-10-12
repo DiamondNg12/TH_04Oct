@@ -4,6 +4,11 @@ namespace TH_04Oct.Models
 {
     public class Course
     {
+        public Course()
+        {
+            Enrollments = new HashSet<Enrollment>();
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CourseID { get; set; }
         public string Title { get; set; }
